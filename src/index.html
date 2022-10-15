@@ -1,0 +1,670 @@
+<!--  npx tailwindcss -i ./src/input.css -o ./src/style.css --watch -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link id="favicon" rel="shortcut icon" href="https://a.slack-edge.com/5f35cf0/img/icons/favicon-32-ua.png"
+    sizes="16x16 32x32 48x48" type="image/png">
+  <script src="https://kit.fontawesome.com/16ae60001c.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <title>Slack is your digital HQ | Slack</title>
+  <style>
+    .burgerMenu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      transition: .5s ease-out;
+    }
+
+    .burgerMenu.burgerMenuActive {
+      background: #fff;
+      color: #111;
+      z-index: 999;
+      width: 100vw;
+    }
+
+    .navbarTop {
+      padding: 2rem 2.7rem;
+      margin: 0 -2rem 1rem;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      justify-content: space-between;
+    }
+
+    .logo-png {
+      width: 30PX;
+    }
+
+    .burgerButton {
+      border: 1px solid #541554;
+      padding: 15px 20px 16px;
+      width: 100%;
+    }
+
+    .burgerButtonDiv {
+      box-shadow: 0px 0 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .section-title {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      word-spacing: -5px;
+      word-wrap: break-word;
+    }
+
+    .section-title-span {
+      color: #ecb22e;
+    }
+
+    .section-desc {
+      font-weight: 600;
+      word-wrap: break-word;
+      margin: 5px 0 15px;
+    }
+
+    .section-video {
+      max-width: 700px;
+      max-height: 400;
+
+    }
+
+    .section-button {
+      margin-right: 5px;
+      font-weight: 700;
+      font-size: 14px;
+      width: auto;
+      letter-spacing: .8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section-button.google {
+      background: #4285F4;
+      color: white;
+    }
+
+    .video-section-title {
+      font-weight: 700;
+      line-height: 1.2;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -1px;
+    }
+
+    .video-section-desc {
+
+      letter-spacing: -.5px;
+    }
+
+    .section-three-title {
+      letter-spacing: -1px;
+      word-spacing: -1px;
+      font-weight: 600;
+      line-height: 2rem;
+    }
+
+    .t_s_second_button {
+      border: 1px solid #541554;
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="bg-headerBg h-[80px] flex items-center text-white relative">
+    <div class="w-[1280px] mx-auto flex gap-x-4  px-4 justify-between  ">
+
+      <div class="flex justify-center items-center gap-2 "><svg height="25" width="100" class="c-slacklogo--white"
+          viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+          <title>Slack</title>
+          <g fill="none">
+            <path
+              d="m75.663 47.477 2.929-6.846c3.207 2.375 7.39 3.632 11.574 3.632 3.068 0 5.02-1.187 5.02-3.003-.07-5.03-18.477-1.118-18.617-13.764-.07-6.427 5.648-11.387 13.737-11.387 4.81 0 9.622 1.188 13.038 3.913l-2.737 6.992c-3.143-2.021-7.025-3.43-10.72-3.43-2.51 0-4.184 1.187-4.184 2.725.07 4.96 18.618 2.235 18.827 14.322 0 6.567-5.579 11.178-13.528 11.178-5.856 0-11.225-1.397-15.34-4.332m116.629-9.325a8.498 8.498 0 0 1 -7.405 4.33c-4.698 0-8.506-3.816-8.506-8.523s3.808-8.523 8.506-8.523a8.498 8.498 0 0 1 7.405 4.33l8.143-4.52c-3.05-5.451-8.868-9.137-15.548-9.137-9.839 0-17.815 7.991-17.815 17.85 0 9.858 7.976 17.85 17.815 17.85 6.68 0 12.498-3.686 15.548-9.137zm-82.477 12.958h10.18v-49.86h-10.179zm95.761-49.86v49.86h10.18v-14.938l12.063 14.938h13.012l-15.34-17.746 14.224-16.559h-12.454l-11.505 13.767v-29.322zm-54.218 15.557v4.053c-1.673-2.795-5.787-4.751-10.11-4.751-8.925 0-15.967 7.895-15.967 17.815s7.042 17.885 15.967 17.885c4.323 0 8.437-1.956 10.11-4.751v4.052h10.18v-34.303zm0 21.414c-1.464 2.445-4.532 4.26-7.948 4.26-4.699 0-8.507-3.815-8.507-8.522s3.808-8.523 8.507-8.523c3.416 0 6.484 1.886 7.948 4.4z"
+              fill="#ffffff"></path>
+            <path
+              d="m21.902.148c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985h5.974v-5.985a5.98 5.98 0 0 0 -5.974-5.985m0 15.96h-15.929c-3.299 0-5.973 2.68-5.973 5.986 0 3.305 2.674 5.985 5.973 5.985h15.93c3.298 0 5.973-2.68 5.973-5.985 0-3.306-2.675-5.986-5.974-5.986"
+              fill="#097eff"></path>
+            <path
+              d="m59.734 22.094c0-3.306-2.675-5.986-5.974-5.986s-5.973 2.68-5.973 5.986v5.985h5.973a5.98 5.98 0 0 0 5.974-5.985m-15.929 0v-15.961a5.98 5.98 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985v15.96c0 3.307 2.674 5.987 5.973 5.987a5.98 5.98 0 0 0 5.974-5.985"
+              fill="#097eff"></path>
+            <path
+              d="m37.831 60a5.98 5.98 0 0 0 5.974-5.985 5.98 5.98 0 0 0 -5.974-5.985h-5.973v5.985c0 3.305 2.674 5.985 5.973 5.985m0-15.96h15.93c3.298 0 5.973-2.68 5.973-5.986a5.98 5.98 0 0 0 -5.974-5.985h-15.929c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985"
+              fill="#ecb12f"></path>
+            <path
+              d="m0 38.054a5.979 5.979 0 0 0 5.973 5.985 5.98 5.98 0 0 0 5.974-5.985v-5.985h-5.974c-3.299 0-5.973 2.68-5.973 5.985m15.929 0v15.96c0 3.306 2.674 5.986 5.973 5.986a5.98 5.98 0 0 0 5.974-5.985v-15.961a5.979 5.979 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985"
+              fill="#ecb12f"></path>
+          </g>
+        </svg>
+
+      </div>
+
+      <div class="flex gap-6 items-center justify-start">
+        <div class="w-[130] text-right lg:hidden ">
+          <a href="#" class="text-white "><i class="fa-solid fa-magnifying-glass "></i></a>
+        </div>
+        <div class="lg:hidden">
+          <button id="hamburger-button">
+
+            <i class="fa-solid fa-bars "></i>
+          </button>
+        </div>
+
+
+
+      </div>
+      <div class="  hidden lg:flex justify-between  items-center w-full">
+        <div class="">
+          <nav>
+            <ul class="flex gap-2">
+              <li class="mx-2 ">
+                <a class="font-semibold  flex justify-center items-center group" href="#" target="_blan1k">Product
+
+                  <div class="group-hover:rotate-180 transition"> <svg class="" width="24" height="24"
+                      viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="M8.12 9.29L12 13.17l3.88-3.88a.996.996 0 1 1 1.41 1.41l-4.59 4.59a.996.996 0 0 1-1.41 0L6.7 10.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z" />
+                    </svg></div>
+              </li>
+              <li class=" mx-2">
+                <a class="font-semibold hover:underline" href="#" target="_blank">Solutions</a>
+              </li>
+              <li class="mx-2">
+                <a class="font-semibold hover:underline" href="#" target="_blank">Enterprise</a>
+              </li>
+              <li class="mx-2">
+                <a class="font-semibold hover:underline" href="#" target="_blank">Resources</a>
+              </li>
+              <li class="mx-2">
+                <a class="font-semibold hover:underline" href="#" target="_blank">Pricing</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex gap-15 w-[330px] xl:w-[430px] justify-between items-center">
+          <div class="w-[130] text-right ">
+            <a href="#" class="text-white "><i class="fa-solid fa-magnifying-glass fa-lg"></i></a>
+          </div>
+
+          <div class="flex justify-evenly xl:justify-around  items-center w-[350px] xl:w-[450px]">
+
+            <div>
+              <a href="#" class="font-semibold hover:underline"> Sign in </a>
+            </div>
+            <div class="flex gap-5">
+
+              <div class="hidden xl:block">
+                <button class="border rounded hover:shadow-lg w-[147px] h-[41px]   font-semibold">
+                  TALK TO SALES
+                </button>
+              </div>
+              <div>
+                <button class="border bg-white text-headerBg rounded w-[147px] h-[41px] font-semibold">
+                  TRY FOR FREE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="burgerMenu flex flex-col lg:hidden ">
+        <div class="navbarTop">
+          <div class=""><svg height="25" width="100" class="c-slacklogo--white" viewBox="0 0 240 60"
+              xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+              <title>Slack</title>
+              <g fill="none">
+                <path
+                  d="m75.663 47.477 2.929-6.846c3.207 2.375 7.39 3.632 11.574 3.632 3.068 0 5.02-1.187 5.02-3.003-.07-5.03-18.477-1.118-18.617-13.764-.07-6.427 5.648-11.387 13.737-11.387 4.81 0 9.622 1.188 13.038 3.913l-2.737 6.992c-3.143-2.021-7.025-3.43-10.72-3.43-2.51 0-4.184 1.187-4.184 2.725.07 4.96 18.618 2.235 18.827 14.322 0 6.567-5.579 11.178-13.528 11.178-5.856 0-11.225-1.397-15.34-4.332m116.629-9.325a8.498 8.498 0 0 1 -7.405 4.33c-4.698 0-8.506-3.816-8.506-8.523s3.808-8.523 8.506-8.523a8.498 8.498 0 0 1 7.405 4.33l8.143-4.52c-3.05-5.451-8.868-9.137-15.548-9.137-9.839 0-17.815 7.991-17.815 17.85 0 9.858 7.976 17.85 17.815 17.85 6.68 0 12.498-3.686 15.548-9.137zm-82.477 12.958h10.18v-49.86h-10.179zm95.761-49.86v49.86h10.18v-14.938l12.063 14.938h13.012l-15.34-17.746 14.224-16.559h-12.454l-11.505 13.767v-29.322zm-54.218 15.557v4.053c-1.673-2.795-5.787-4.751-10.11-4.751-8.925 0-15.967 7.895-15.967 17.815s7.042 17.885 15.967 17.885c4.323 0 8.437-1.956 10.11-4.751v4.052h10.18v-34.303zm0 21.414c-1.464 2.445-4.532 4.26-7.948 4.26-4.699 0-8.507-3.815-8.507-8.522s3.808-8.523 8.507-8.523c3.416 0 6.484 1.886 7.948 4.4z"
+                  fill="#000"></path>
+                <path
+                  d="m21.902.148c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985h5.974v-5.985a5.98 5.98 0 0 0 -5.974-5.985m0 15.96h-15.929c-3.299 0-5.973 2.68-5.973 5.986 0 3.305 2.674 5.985 5.973 5.985h15.93c3.298 0 5.973-2.68 5.973-5.985 0-3.306-2.675-5.986-5.974-5.986"
+                  fill="#097eff"></path>
+                <path
+                  d="m59.734 22.094c0-3.306-2.675-5.986-5.974-5.986s-5.973 2.68-5.973 5.986v5.985h5.973a5.98 5.98 0 0 0 5.974-5.985m-15.929 0v-15.961a5.98 5.98 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985v15.96c0 3.307 2.674 5.987 5.973 5.987a5.98 5.98 0 0 0 5.974-5.985"
+                  fill="#097eff"></path>
+                <path
+                  d="m37.831 60a5.98 5.98 0 0 0 5.974-5.985 5.98 5.98 0 0 0 -5.974-5.985h-5.973v5.985c0 3.305 2.674 5.985 5.973 5.985m0-15.96h15.93c3.298 0 5.973-2.68 5.973-5.986a5.98 5.98 0 0 0 -5.974-5.985h-15.929c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985"
+                  fill="#ecb12f"></path>
+                <path
+                  d="m0 38.054a5.979 5.979 0 0 0 5.973 5.985 5.98 5.98 0 0 0 5.974-5.985v-5.985h-5.974c-3.299 0-5.973 2.68-5.973 5.985m15.929 0v15.96c0 3.306 2.674 5.986 5.973 5.986a5.98 5.98 0 0 0 5.974-5.985v-15.961a5.979 5.979 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985"
+                  fill="#ecb12f"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="flex gap-6 items-center justify-start">
+
+            <div class="lg:hidden">
+              <button id="mobile-navbar close">
+                <i class="fa-solid fa-xmark fa-2x"></i>
+              </button>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+
+        <nav class="p-5 overflow-scroll h-[300px]">
+          <ul class="">
+            <li class="h-16 font-semibold "><button class="c-menu--button v--main" data-clog-click=""
+                data-clog-ui-element="btn_features_main" data-clog-ui-component="inc_header_nav">Product</button></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/solutions" data-clog-click=""
+                data-clog-ui-element="link_solutions_main" data-clog-ui-component="inc_header_nav">Solutions</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/enterprise" data-clog-click=""
+                data-clog-ui-element="link_enterprise" data-clog-ui-component="inc_header_nav">Enterprise</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/resources" data-clog-click=""
+                data-clog-ui-element="link_resources_library" data-clog-ui-component="inc_header_nav">Resources</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/pricing" data-clog-click=""
+                data-clog-ui-element="link_pricing" data-clog-ui-component="inc_header_nav">Pricing</a></li>
+            <li class="h-16 font-semibold "><button class="c-menu--button v--main" data-clog-click=""
+                data-clog-ui-element="btn_features_main" data-clog-ui-component="inc_header_nav">Product</button></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/solutions" data-clog-click=""
+                data-clog-ui-element="link_solutions_main" data-clog-ui-component="inc_header_nav">Solutions</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/enterprise" data-clog-click=""
+                data-clog-ui-element="link_enterprise" data-clog-ui-component="inc_header_nav">Enterprise</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/resources" data-clog-click=""
+                data-clog-ui-element="link_resources_library" data-clog-ui-component="inc_header_nav">Resources</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/pricing" data-clog-click=""
+                data-clog-ui-element="link_pricing" data-clog-ui-component="inc_header_nav">Pricing</a></li>
+            <li class="h-16 font-semibold "><button class="c-menu--button v--main" data-clog-click=""
+                data-clog-ui-element="btn_features_main" data-clog-ui-component="inc_header_nav">Product</button></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/solutions" data-clog-click=""
+                data-clog-ui-element="link_solutions_main" data-clog-ui-component="inc_header_nav">Solutions</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/enterprise" data-clog-click=""
+                data-clog-ui-element="link_enterprise" data-clog-ui-component="inc_header_nav">Enterprise</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/resources" data-clog-click=""
+                data-clog-ui-element="link_resources_library" data-clog-ui-component="inc_header_nav">Resources</a></li>
+            <li class="h-16 font-semibold "><a href="https://slack.com/pricing" data-clog-click=""
+                data-clog-ui-element="link_pricing" data-clog-ui-component="inc_header_nav">Pricing</a></li>
+          </ul>
+        </nav>
+
+
+        <div
+          class="flex flex-wrap md:flex-nowrap justify-center burgerButtonDiv fixed bottom-0 h-[250px] z-10 w-full p-10 items-center gap-4 ">
+
+          <button class="  bg-white text-headerBg burgerButton rounded  font-semibold">
+            TALK TO SALE
+          </button>
+
+          <button class="border bg-headerBg text-white burgerButton rounded font-semibold">
+            DOWNLOAD SLACK
+          </button>
+        </div>
+
+
+      </div>
+  </header>
+
+  <main id="main" class="main">
+    <section class=" bg-headerBg first-section  ">
+      <div class="  xl:h-[500px] xl:w-[1280px] mx-auto flex items-center justify-center flex-col md:flex-row   ">
+        <div class="  xl:w-[800px] p-5 flex justify-center flex-col">
+          <div>
+            <div
+              class="section-title text-center md:text-left font-bold text-[36px] md:text-[3.250rem] leading-[1.0625]  ">
+              <span>
+                Great teamwork start with a
+                <span class="section-title-span  inline-block">digital
+                  HQ</span></span>
+            </div>
+            <div class="section-desc text-center md:text-left w-full text-[16px] md:text-[20px] text-white ">
+              With all your people, tools and communication in one place, you can work faster and more flexibly than
+              ever
+              before.
+            </div>
+          </div>
+          <div class=" hidden  md:flex flex-col gap-2  mt-10">
+            <div class="md:flex flex-col gap-2 lg:flex-row mb-3 mt-3">
+              <div
+                class="section-button  bg-white text-headerBg flex items-center justify-center  rounded-sm w-full lg:w-[240px] h-[57px] ">
+                <a href="#">Sign up with
+                  email</a>
+              </div>
+              <div class="flex items-center  gap-1 bg-blue-400 p-2 w-full lg:w-[240px] rounded-sm h-[57px]  ">
+                <div class="bg-white  px-4 w-12 h-12 flex justify-center items-center rounded-sm">
+                  <svg width="20" height="20" viewBox="0 0 256 262">
+                    <path fill="#4285F4"
+                      d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" />
+                    <path fill="#34A853"
+                      d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" />
+                    <path fill="#FBBC05"
+                      d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" />
+                    <path fill="#EB4335"
+                      d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" />
+                  </svg>
+                </div>
+                <div class="section-button  text-white w-full flex items-center justify-center  "><a class="m1-2"
+                    href="#">Sign up
+                    with google</a></div>
+              </div>
+            </div>
+            <div class="text-white font-semibold text-[20px]">Slack is free to try for as long as you’d like
+            </div>
+          </div>
+          <div
+            class="section-button my-8 md:hidden bg-white text-headerBg flex items-center justify-center  rounded-sm w-full lg:w-[240px] h-[57px] ">
+            <a href="#">Get slack for android</a>
+          </div>
+        </div>
+        <div class="section-video">
+          <video width="700" height="400" muted autoplay loop>
+            <source
+              src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/webm/hero-product-ui.webm"
+              type="">
+          </video>
+        </div>
+      </div>
+    </section>
+    <section class="bg-sectionBg second-section">
+      <div class="flex flex-col items-center pt-12 ">
+        <p class="text-[20px] px-4 md:px-24 mb-4 font-semibold text-center">Trusted by companıes all ocer the world</p>
+        <div class="flex justify-around items-center flex-wrap gap-8 md:gap-1 w-3/5">
+          <div class="c-logo-bar__item"><img alt="Airbnb" height="35" width="112" loading="lazy" class="lazyload"
+              data-src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/airbnb-logo.png"
+              data-srcset="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/airbnb-logo.png 1x, https://a.slack-edge.com/80588/marketing/img/logos/company/_color/airbnb-logo@2x.png 2x"
+              src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/airbnb-logo.png"
+              srcset="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/airbnb-logo.png 1x, https://a.slack-edge.com/80588/marketing/img/logos/company/_color/airbnb-logo@2x.png 2x">
+          </div>
+          <div class="c-logo-bar__item"><img style="" alt="NASA" height="35" width="67" loading="lazy" class="lazyload"
+              data-src="https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa.png"
+              data-srcset="https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa.png 1x, https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa@2x.png 2x"
+              src="https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa.png"
+              srcset="https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa.png 1x, https://a.slack-edge.com/5ae14bf/marketing/img/logos/company/_color/logo-nasa@2x.png 2x">
+          </div>
+          <div class="c-logo-bar__item"><img style="" alt="Uber" height="35" width="75" loading="lazy" class="lazyload"
+              data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/uber.png"
+              data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/uber.png 1x, https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/uber@2x.png 2x"
+              src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/uber.png"
+              srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/uber.png 1x, https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/uber@2x.png 2x">
+          </div>
+          <div class="c-logo-bar__item"><img style="" alt="Target" height="35" width="48" loading="lazy"
+              class="lazyload"
+              data-src="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png"
+              data-srcset="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png 1x, https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo@2x.png 2x"
+              src="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png"
+              srcset="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png 1x, https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo@2x.png 2x">
+          </div>
+          <div class="c-logo-bar__item"><img style="" alt="New York Times" height="35" width="230" loading="lazy"
+              class="lazyload" data-src="https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/nyt.png"
+              data-srcset="https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/nyt.png 1x, https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-nyt.png 2x"
+              src="https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/nyt.png"
+              srcset="https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/nyt.png 1x, https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-nyt.png 2x">
+          </div>
+          <div class="c-logo-bar__item"><img style="" alt="Etsy" height="35" width="74" loading="lazy" class="lazyload"
+              data-src="https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-etsy.png"
+              data-srcset="https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-etsy.png 1x, https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/etsy@2x.png 2x"
+              src="https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-etsy.png"
+              srcset="https://a.slack-edge.com/1e38e34/marketing/img/logos/company/logo-etsy.png 1x, https://a.slack-edge.com/044f5db/marketing/img/logos/company/_color/etsy@2x.png 2x">
+          </div>
+        </div>
+        <div class="video-section  ">
+          <div
+            class=" flex flex-col lg:flex-row justify-start lg:justify-center items-center w-[90%]  lg:mx-auto gap-8 md:gap-16 lg:gap-36 my-20">
+            <div class="hidden md:block "><video width="600" height="300"
+                title="A connected team discussing work in multiple channels in the Slack app" loop autoplay muted
+                playsinline>
+                <source
+                  src="https://a.slack-edge.com/9436a9f/marketing/img/homepage/e2e-prospects/animations/webm/connectedness.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/9436a9f/marketing/img/homepage/e2e-prospects/animations/mp4/connectedness.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+            <div class="md:hidden"><video title="A connected team discussing work in multiple channels in the Slack app"
+                loop autoplay muted>
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/webm/connectedness-mobile.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/mp4/connectedness-mobile.mp4"
+                  type="video/mp4">
+              </video></div>
+
+            <div class=" flex flex-col gap-5 w-3/4 lg:w-1/4">
+              <h2 class="text-[24px]  md:text-[3.125rem]  video-section-title">Bring your team together</h2>
+              <p class="text-[18px] font-semibold video-section-desc">At the heart of Slack are channels:
+                organized
+                spaces for
+                everyone and everything you need for work. In channels, it’s easier to connect across departments,
+                offices, time
+                zones and even other companies.</p>
+
+              <a href="https://slack.com/features/channels"
+                class="text-[18px] font-semibold text-blue-500 group whitespace-nowrap">Learn
+                more
+                about channels &#8594;<span
+                  class="w-0 h-[2px] group-hover:w-[56%] bg-blue-500   transition-all duration-300 block"></span> </a>
+            </div>
+
+          </div>
+          <div
+            class=" flex flex-col-reverse  lg:flex-row  justify-center items-center  md:w-[90%]  ml-3 lg:mx-auto gap-8 md:gap-16 lg:gap-36 my-20">
+            <div class=" flex flex-col gap-5 w-3/4 lg:w-1/4">
+              <h2 class="text-[24px]  md:text-[3.125rem]  video-section-title">Choose how you want to work
+              </h2>
+              <p class="text-[18px] font-semibold video-section-desc">In Slack, you’ve got all the flexibility to work
+                when, where and how it’s best for you. You can easily chat, send audio
+                and video clips, or hop on a huddle to talk things out live.</p>
+
+              <a href="https://slack.com/features/channels"
+                class="whitespace-normal text-[18px] font-semibold text-blue-500  group  ">Learn more about flexible
+                communication &#8594; <span
+                  class="w-0 h-[1.5px] group-hover:w-[84%] bg-blue-500   transition-all duration-300 block"></span>
+              </a>
+            </div>
+            <div class="hidden md:block "><video width="600" height="300"
+                title="A connected team discussing work in multiple channels in the Slack app" loop autoplay muted
+                playsinline>
+                <source
+                  src="https://a.slack-edge.com/9436a9f/marketing/img/homepage/e2e-prospects/animations/webm/flexibility.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/9436a9f/marketing/img/homepage/e2e-prospects/animations/mp4/flexibility.mp4"
+                  type="video/mp4">
+              </video>
+
+            </div>
+            <div class="md:hidden">
+              <video data-js-id="flexibility" title="A user starting a huddle and recording a video clip the Slack app"
+                loop autoplay muted>
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/webm/flexibility-mobile.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/mp4/flexibility-mobile.mp4"
+                  type="video/mp4">
+              </video>
+
+            </div>
+
+
+          </div>
+          <div
+            class=" flex flex-col lg:flex-row justify-start lg:justify-center items-center w-[90%]  lg:mx-auto gap-8 md:gap-16 lg:gap-36 my-20">
+            <div class="hidden md:block ">
+              <video width="600" height="300"
+                title="A connected team discussing work in multiple channels in the Slack app" loop autoplay muted
+                playsinline>
+                <source
+                  src="https://a.slack-edge.com/221d25b/marketing/img/homepage/e2e-prospects/animations/webm/speed.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/inline/animations/mp4/speed.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+            <div class="md:hidden"><video title="A connected team discussing work in multiple channels in the Slack app"
+                loop autoplay muted>
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/webm/connectedness-mobile.webm"
+                  type="video/webm">
+                <source
+                  src="https://a.slack-edge.com/9689dea/marketing/img/homepage/e2e-prospects/animations/mp4/connectedness-mobile.mp4"
+                  type="video/mp4">
+              </video></div>
+
+            <div class=" flex flex-col gap-5 w-3/4 lg:w-1/4">
+              <h2 class="text-[24px]  md:text-[2.5rem]  video-section-title">Move faster with your tools in one place
+              </h2>
+              <p class="text-[18px] font-semibold video-section-desc">With your other work apps connected to Slack, you
+                can work faster by switching tabs less. And with powerful tools like
+                Workflow Builder, you can automate away routine tasks.</p>
+
+              <a href="https://slack.com/features/channels" class="text-[18px] font-semibold text-blue-500 group ">Learn
+                more about the Slack
+                platform &#8594;<span
+                  class="w-0 h-[2px] group-hover:w-[74%] bg-blue-500   transition-all duration-300 block"></span> </a>
+            </div>
+
+          </div>
+        </div>
+    </section>
+    <section class="bg-white third-section relative my-24">
+      <div class="flex justify-center my-20 items-center flex-col">
+        <div class="">
+          <h1 class="text-center text-[32px] md:text-[50px] section-three-title">Team large and small rely on Slack</h1>
+          <p class="text-center text-[18px] font-semibold my-8 ">Slack securely scales up to support collaboration at
+            the
+            world’s biggest
+            companies.</p>
+        </div>
+        <div class="flex flex-col items-center justify-center  w-full   gap-3  lg:flex-row">
+          <div
+            class="section-button  bg-headerBg text-white flex items-center justify-center  w-[95%] rounded-[5px] lg:w-[350px] h-[57px] ">
+            <a href="#">MEET SLACK FOR ENTERPRİSE</a>
+          </div>
+          <div
+            class="section-button  bg-white text-headerBg flex items-center justify-center t_s_second_button  rounded-[5px]  w-[95%]  lg:w-[200px] h-[57px] ">
+            <a href="#">TALK TO SALES</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-evenly mx-auto flex-col w-3/4 gap-10 mb-5 md:flex-row items-center">
+        <div class="w-[170px] ">
+          <h1 class="text-[64px]  text-center font-bold text-headerBg">85%</h1>
+          <p class="text-sm text-center ">of users say Slack has improved communication<sup>*</sup></p>
+        </div>
+        <div class="w-[170px]">
+          <h1 class=" text-[64px]  text-center font-bold text-headerBg">86%</h1>
+          <p class="text-sm text-center ">feel their ability to work remotely has improved<sup>*</sup></p>
+        </div>
+        <div class="w-[170px]">
+          <h1 class=" text-[64px]  text-center font-bold text-headerBg">88%</h1>
+          <p class="text-sm text-center ">feel more connected to their teams<sup>*</sup></p>
+        </div>
+
+      </div>
+
+      <div class="  hidden xl:block select-none">
+        <img class="absolute right-[23%] top-[40px] " draggable="false" aria-hidden="true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-handshake.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-handshake.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-handshake@2x.png 2x">
+        <img class="absolute left-[25%] top-[125px] " draggable="false" aria-hidden="true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-lock.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-lock.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-lock@2x.png 2x">
+        <img class="absolute  right-[15%] top-[125px] " draggable="false" aria-hidden="true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-woman-technologist.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-woman-technologist.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-woman-technologist@2x.png 2x">
+        <img class="absolute left-[20%] top-[-50px]" draggable="false" aria-hidden=" true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-office-building.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-office-building.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-office-building@2x.png 2x">
+        <img class=" absolute right-[17%] top-[-50px]" draggable="false" aria-hidden=" true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-skyline.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-skyline.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-skyline@2x.png 2x">
+        <img class="absolute left-[17%] top-[40px]" draggable="false" aria-hidden="true" class="c-emoji-hero__image"
+          src="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-chart-upward-trend.png"
+          srcset="https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-chart-upward-trend.png 1x, https://a.slack-edge.com/7460822/marketing/img/homepage/e2e-prospects/emoji/emoji-chart-upward-trend@2x.png 2x">
+      </div>
+    </section>
+    <section class="mt-8">
+      <div class="flex justify-center items-center text-center lg:text-start flex-col lg:flex-row gap-6 my-8">
+        <div class="relative ">
+          <a href=" https://www.youtube.com/watch?v=IDrUzXubiiQ" target="_blank"><video class="rounded-r-full group"
+              width="800" autoplay muted loop title="Video featuring a Slack customer, company name">
+              <source
+                src="https://a.slack-edge.com/93eaeb3/marketing/img/features/customer-awards/customer-awards-tmobile-quote-610x305@2x.mp4"
+                type="video/mp4">
+
+            </video></a>
+
+        </div>
+        <div class="lg:w-[30%] flex flex-col gap-7 m-6 ">
+          <p class="text-[1.375rem] md:text-[28px] whitespace-normal break-words">
+            <i>“We were able to create a large virtual network of employees that can communicate as though they are
+              together. There was
+              a lot of disruption in terms of where we worked, but in terms of how we worked—very little
+              disruption.”</i>
+          </p>
+          <div>
+            <p><b>Mark Smith</b></p>
+            <p>Senior Technical Product Manager, T-Mobile</p>
+
+          </div>
+
+
+          <a href="https://slack.com/features/channels"
+            class="text-[18px] font-semibold text-blue-500 group whitespace-nowrap">See more customer stories
+            &#8594;<span class="w-0 h-[2px] group-hover:w-[41%] bg-blue-500   transition-all duration-300 block"></span>
+          </a>
+
+        </div>
+
+      </div>
+      <p class="text-center text-[14px] m-4">* Weighted average. Based on 2,707 survey responses from weekly Slack users
+        in
+        the U.S.,
+        UK, Australia and
+        Canada with a
+        ± 2% margin of error at 95% CI (December 2021).</p>
+    </section>
+    <section class="bg-sectionBg py-16 justify-center flex-col flex">
+
+
+      <h1 class="font-bold text-[32px] text-center mb-10">Take a deeper dive into a new way to work</h1>
+      <div class="flex justify-center items-center md:flex-wrap md:gap-10 relative">
+
+        <div class="w-[250px] hidden h-[400px]  bg-blue-400">1 </div>
+        <div class="w-[250px] hidden h-[400px] bg-blue-400">2</div>
+        <div class="w-[250px] hidden h-[400px] bg-blue-400">3</div>
+        <div class="w-[250px] h-[400px] bg-blue-400">4</div>
+        <div class="">
+          <button class="prev md:hidden absolute bottom-[-50px] md:top-40 bg left-10 md:left-5" id="prev"><i
+              class="fa-sharp fa-solid fa-arrow-left fa-3x"></i></button>
+          <button class="next md:hidden absolute bottom-[-50px] md:top-40 right-10 md:right-5" id="next"><i
+              class="fa-sharp fa-solid fa-arrow-right fa-3x"></i></button>
+        </div>
+      </div>
+
+
+
+    </section>
+
+  </main>
+
+
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
